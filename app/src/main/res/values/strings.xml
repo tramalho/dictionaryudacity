@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DictionaryUdacity</string>
+    <string name="total_columns">User dictionary contains %1$s words</string>
+    <string name="column_names">COLUMNS: _id - frequency - word</string>
+    <string name="line_brake">\n</string>
+    <string name="separator">" - "</string>
+</resources>
