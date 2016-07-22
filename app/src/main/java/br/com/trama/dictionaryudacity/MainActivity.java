@@ -31,13 +31,17 @@ public class MainActivity extends AppCompatActivity {
                 viewById.append(lineBreak);
                 viewById.append(getString(R.string.column_names));
 
+                int idIdx = cursor.getColumnIndex(UserDictionary.Words._ID);
+                int frequencyIdx = cursor.getColumnIndex(UserDictionary.Words.FREQUENCY);
+                int wordIdx = cursor.getColumnIndex(UserDictionary.Words.WORD);
+
                 while (cursor.moveToNext()) {
                     viewById.append(lineBreak);
-                    viewById.append(getValueByCursor(cursor, UserDictionary.Words._ID));
+                    viewById.append(""+cursor.getInt(idIdx));
                     viewById.append(separator);
-                    viewById.append(getValueByCursor(cursor, UserDictionary.Words.FREQUENCY));
+                    viewById.append(""+cursor.getInt(frequencyIdx));
                     viewById.append(separator);
-                    viewById.append(getValueByCursor(cursor, UserDictionary.Words.WORD));
+                    viewById.append(cursor.getString(wordIdx));
                 }
             }
 
@@ -46,9 +50,5 @@ public class MainActivity extends AppCompatActivity {
                 cursor.close();
             }
         }
-    }
-
-    private String getValueByCursor(Cursor cursor, String column) {
-        return cursor.getString(cursor.getColumnIndex(column));
     }
 }
